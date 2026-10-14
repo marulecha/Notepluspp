@@ -22,7 +22,7 @@ jobs:
       - run: npm run dist
       - uses: softprops/action-gh-release@v2
         with:
-          name: NoteplusPP ${{ github.ref_name }}
+          name: Notepluspp ${{ github.ref_name }}
           files: |
             dist/*.dmg
             dist/*.zip

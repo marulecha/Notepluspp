@@ -1,8 +1,9 @@
-# Builds the NoteplusPP artwork from build/brand/mascot.svg and the Fredoka font:
+# Builds the Notepluspp artwork from build/brand/mascot.svg and the Fredoka font:
 #   build/icon.svg            app icon (render it to build/icon.png at 1024px)
 #   public/favicon.svg        the same icon, for the browser tab
 #   public/logo.svg           the pad stack and chameleon without text, for the About dialog
-#   public/logo-wordmark.svg  the pad stack with "Noteplus{}{}" beside it, for the README
+#   public/logo-wordmark.svg       the pad stack with "Noteplus{}{}" beside it, for the README
+#   public/logo-wordmark-dark.svg  the same with light lettering, for GitHub's dark theme
 # Fredoka is under the SIL Open Font License. Download it from
 # https://github.com/google/fonts/tree/main/ofl/fredoka, then run:
 #   python3 build/brand/make.py <path to Fredoka[wdth,wght].ttf>
@@ -45,6 +46,8 @@ CHAMELEON = '\n'.join(lines[7:41])
 
 INK = '#2b1640'      # wordmark letters
 PURPLE = '#7b3fb5'   # braces
+# Wordmark colours on a dark background: letters, braces, and the pad shape behind each {} pair.
+DARK = {'ink': '#f1e8fb', 'braces': '#c49af0', 'pad': '#3e2a5c'}
 LAVENDER = ['#efe5f9', '#dcc8f0', '#c3a3e3']
 
 
@@ -94,10 +97,11 @@ def icon():
     return f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">{body}</svg>'
 
 
-def wordmark(x, baseline, size):
+def wordmark(x, baseline, size, ink=INK, braces=PURPLE, pad=None):
     """'Noteplus' in ink, then '{}' '{}' in purple, each pair sitting on a soft pad shape."""
     word, _, end = text_path('Noteplus', size, x=x, baseline=baseline)
-    parts = [f'<path d="{word}" fill="{INK}"/>']
+    pad = pad or LAVENDER[1]
+    parts = [f'<path d="{word}" fill="{ink}"/>']
     pen = end + size * 0.10
     for _ in range(2):
         d, boxes, nxt = text_path('{}', size, x=pen, baseline=baseline, tracking=size * 0.02)
@@ -106,8 +110,8 @@ def wordmark(x, baseline, size):
         pad_w, pad_h, mid = (x1 - x0) * 0.62, (y1 - y0) * 1.04, (y0 + y1) / 2
         cx = (x0 + x1) / 2
         parts.append(f'<rect x="{cx - pad_w / 2:.1f}" y="{mid - pad_h / 2:.1f}" width="{pad_w:.1f}" height="{pad_h:.1f}" '
-                     f'rx="{pad_w / 2:.1f}" fill="{LAVENDER[1]}"/>')
-        parts.append(f'<path d="{d}" fill="{PURPLE}"/>')
+                     f'rx="{pad_w / 2:.1f}" fill="{pad}"/>')
+        parts.append(f'<path d="{d}" fill="{braces}"/>')
         pen = nxt + size * 0.06
     return ''.join(parts), pen
 
@@ -118,15 +122,16 @@ def mark():
             f'{stack_art()}</svg>')
 
 
-def lockup():
+def lockup(**colours):
     """The mark on the left and the wordmark on the right, centred on the same line."""
-    words, end = wordmark(530, 300, 150)
+    words, end = wordmark(530, 300, 150, **colours)
     art = f'<g transform="translate(40,40) scale(0.86)">{stack_art()}</g>'
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="70 20 {end - 40:.0f} 470"><defs>{SHADOW}</defs>'
             f'{art}{words}</svg>')
 
 
 for path, svg in [('build/icon.svg', icon()), ('public/favicon.svg', icon()),
-                  ('public/logo.svg', mark()), ('public/logo-wordmark.svg', lockup())]:
+                  ('public/logo.svg', mark()), ('public/logo-wordmark.svg', lockup()),
+                  ('public/logo-wordmark-dark.svg', lockup(ink=DARK['ink'], braces=DARK['braces'], pad=DARK['pad']))]:
     open(f'{repo}/{path}', 'w').write(svg + '\n')
 print('ok')

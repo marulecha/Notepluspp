@@ -1,4 +1,4 @@
-// NoteplusPP server: serves the UI and gives it read/write access to local files.
+// Notepluspp server: serves the UI and gives it read/write access to local files.
 // It binds to 127.0.0.1 only and rejects requests from other hosts or origins.
 
 const http = require('http');
@@ -439,6 +439,6 @@ module.exports = { start };
 
 if (require.main === module) {
   start({ port: Number(process.env.PORT) || 7777 }).then((port) => {
-    console.log(`NoteplusPP running at http://localhost:${port}`);
+    console.log(`Notepluspp running at http://localhost:${port}`);
   });
 }

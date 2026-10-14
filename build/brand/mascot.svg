@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="44 -5 486 500">
-  <!-- NoteplusPP mascot source for build/brand/make.py: the pad (lines 4-6) and the chameleon group (lines 8-41). -->
+  <!-- Notepluspp mascot source for build/brand/make.py: the pad (lines 4-6) and the chameleon group (lines 8-41). -->
   <!-- pad outline (replaces the page) -->
   <path d="M170,115A105,105 0 0 1 380,115V240L414,236Q442,233 442,262V282Q442,311 414,308L380,304V375A105,105 0 0 1 170,375V304L136,308Q108,311 108,282V262Q108,233 136,236L170,240Z" fill="#fff" stroke="#111" stroke-width="11" stroke-linejoin="round"/>
   <path d="M192,120A83,83 0 0 1 358,120V370A83,83 0 0 1 192,370Z" fill="none" stroke="#111" stroke-width="3.5" stroke-dasharray="9 8" stroke-linecap="round"/>
