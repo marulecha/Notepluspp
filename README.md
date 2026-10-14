@@ -7,7 +7,11 @@
 
 <h1 align="center">Notepluspp</h1>
 
-<p align="center"><strong>Its official name is Noteplus-PadPad, said "note plus pad pad".</strong></p>
+<div align="center">
+
+**Its official name is Noteplus-$`\color{#9b59d0}\textsf{\textbf{PadPad}}`$, said "note plus $`\color{#9b59d0}\textsf{\textbf{pad pad}}`$".**
+
+</div>
 
 Notepluspp is a copy of Notepad++ for macOS. Notepad++ only runs on Windows, and its developers don't make a Mac version, so this app recreates it for the Mac. It has the same menus, toolbar, tabs and keyboard shortcuts as Notepad++.
 
