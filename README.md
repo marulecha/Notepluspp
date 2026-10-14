@@ -1,4 +1,4 @@
-<p align="center"><img src="public/logo.svg" width="200" alt="NoteplusPP logo"></p>
+<p align="center"><img src="public/logo-wordmark.svg" width="520" alt="NoteplusPP logo: a purple chameleon on a stack of pads, next to the word Noteplus{}{}"></p>
 
 # NoteplusPP
 
@@ -82,7 +82,7 @@ The workflow signs builds ad hoc, without a developer identity. To ship a notari
 - `electron/preload.js` gives the page the real path of files dropped from Finder.
 - `server.js` serves the UI and the file API. The API reads, writes and lists files, runs find and replace across files, and stores the session.
 - `public/js/` is the editor UI, built on CodeMirror 5.
-- `public/logo.svg` is the logo, and `public/favicon.svg` is a copy of it. `build/icon.svg` places the logo on the app icon tile, and `build/icon.png` is the 1024px render of that file.
+- `build/brand/make.py` generates the artwork from `build/brand/mascot.svg` and the Fredoka font. `build/icon.svg` and `public/favicon.svg` are the app icon, `public/logo.svg` is the mark in the About dialog, and `public/logo-wordmark.svg` is the README header. `build/icon.png` is the 1024px render of `build/icon.svg`.
 
 ## License
 

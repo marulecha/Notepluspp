@@ -1,7 +1,7 @@
 {
   "name": "noteplus-padpad",
   "productName": "NoteplusPP",
-  "version": "1.0.2",
+  "version": "1.0.0",
   "description": "A Notepad++ style text editor for macOS",
   "main": "electron/main.js",
   "private": true,
