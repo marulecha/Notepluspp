@@ -8,7 +8,7 @@
   <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#tile)" stroke="#c3a6dc" stroke-width="4"/>
   <svg x="160" y="172" width="704" height="680" viewBox="44 -5 486 500">
 
-  <!-- Noteplus-PadPad logo: "Noteplus" followed by two small pads, the "PadPad". -->
+  <!-- NoteplusPP logo, official name Noteplus-PadPad: "Noteplus" followed by two small pads, the "PadPad". -->
   <!-- pad outline (replaces the page) -->
   <path d="M170,115A105,105 0 0 1 380,115V240L414,236Q442,233 442,262V282Q442,311 414,308L380,304V375A105,105 0 0 1 170,375V304L136,308Q108,311 108,282V262Q108,233 136,236L170,240Z" fill="#fff" stroke="#111" stroke-width="11" stroke-linejoin="round"/>
   <path d="M192,120A83,83 0 0 1 358,120V370A83,83 0 0 1 192,370Z" fill="none" stroke="#111" stroke-width="3.5" stroke-dasharray="9 8" stroke-linecap="round"/>
@@ -27,17 +27,11 @@
       <circle cx="208" cy="172" r="4"/><circle cx="148" cy="194" r="3.5"/>
     </g>
     <path d="M283,172C272,179 260,180 249,178" fill="none" stroke-width="3.5"/>
-    <!-- red, half-closed eyes: bloodshot whites, red irises, heavy lids -->
-    <circle cx="214" cy="116" r="27" fill="#f6a3a3" stroke-width="4.5"/>
-    <path d="M192,122l7,2l4,-3M193,129l8,-1M236,123l-7,1l-3,-4M234,130l-7,-2" fill="none" stroke="#d61f2c" stroke-width="2"/>
-    <circle cx="221" cy="127" r="9" fill="#c4121f" stroke="none"/>
-    <circle cx="221" cy="127" r="4.5" fill="#111" stroke="none"/>
-    <path d="M187.1,118A27,27 0 1 1 240.9,118Z" fill="#4a1d6e" stroke-width="4.5"/>
-    <circle cx="262" cy="123" r="24" fill="#f6a3a3" stroke-width="4.5"/>
-    <path d="M243,129l7,2l4,-3M244,136l8,-1M281,130l-7,1l-3,-4M279,137l-7,-2" fill="none" stroke="#d61f2c" stroke-width="2"/>
-    <circle cx="255" cy="132" r="8" fill="#c4121f" stroke="none"/>
-    <circle cx="255" cy="132" r="4.0" fill="#111" stroke="none"/>
-    <path d="M238.1,125A24,24 0 1 1 285.9,125Z" fill="#4a1d6e" stroke-width="4.5"/>
+    <!-- googly eyes -->
+    <circle cx="214" cy="116" r="27" fill="#fff" stroke-width="4.5"/>
+    <circle cx="262" cy="123" r="24" fill="#fff" stroke-width="4.5"/>
+    <ellipse cx="224" cy="124" rx="8" ry="10" fill="#111" stroke="none"/>
+    <ellipse cx="253" cy="128" rx="7.5" ry="9.5" fill="#111" stroke="none"/>
 
     <!-- pencil -->
     <path d="M62,207h22v15h-22q-6,0 -6,-7.5t6,-7.5z" fill="#ef8a8a"/>

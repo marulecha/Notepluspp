@@ -176,6 +176,7 @@ function aboutDialog() {
     el('img', { class: 'about-logo', src: 'logo.svg', alt: APP_NAME }),
     el('div', {},
       el('div', { class: 'about-title' }, `${APP_NAME} v${APP_VERSION}   (64-bit)`),
+      el('div', {}, 'Official name: Noteplus-PadPad.'),
       el('div', {}, `Build time: ${new Date(document.lastModified).toDateString()}`),
       el('div', { class: 'about-gap' }, window.desktop ? 'A copy of Notepad++ for macOS.' : 'A copy of Notepad++ that runs in your browser on localhost:7777.'),
       el('div', {}, 'Not affiliated with or endorsed by the Notepad++ project.'),

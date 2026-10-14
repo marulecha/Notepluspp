@@ -1,7 +1,7 @@
 {
   "name": "noteplus-padpad",
-  "productName": "Noteplus-PadPad",
-  "version": "1.0.1",
+  "productName": "NoteplusPP",
+  "version": "1.0.2",
   "description": "A Notepad++ style text editor for macOS",
   "main": "electron/main.js",
   "private": true,
@@ -20,7 +20,7 @@
   },
   "build": {
     "appId": "com.noteplus-padpad.app",
-    "productName": "Noteplus-PadPad",
+    "productName": "NoteplusPP",
     "copyright": "Copyright © 2026 Άγης",
     "directories": {
       "output": "dist",
@@ -46,11 +46,11 @@
       ],
       "artifactName": "${productName}-${version}-${arch}.${ext}",
       "extendInfo": {
-        "NSDocumentsFolderUsageDescription": "Noteplus-PadPad opens and saves the files you choose in your Documents folder.",
-        "NSDesktopFolderUsageDescription": "Noteplus-PadPad opens and saves the files you choose on your Desktop.",
-        "NSDownloadsFolderUsageDescription": "Noteplus-PadPad opens and saves the files you choose in your Downloads folder.",
-        "NSRemovableVolumesUsageDescription": "Noteplus-PadPad opens and saves the files you choose on external drives.",
-        "NSNetworkVolumesUsageDescription": "Noteplus-PadPad opens and saves the files you choose on network drives."
+        "NSDocumentsFolderUsageDescription": "NoteplusPP opens and saves the files you choose in your Documents folder.",
+        "NSDesktopFolderUsageDescription": "NoteplusPP opens and saves the files you choose on your Desktop.",
+        "NSDownloadsFolderUsageDescription": "NoteplusPP opens and saves the files you choose in your Downloads folder.",
+        "NSRemovableVolumesUsageDescription": "NoteplusPP opens and saves the files you choose on external drives.",
+        "NSNetworkVolumesUsageDescription": "NoteplusPP opens and saves the files you choose on network drives."
       }
     },
     "dmg": {

@@ -1,6 +1,6 @@
 'use strict';
 // Desktop app: runs server.js inside Electron on a free local port and shows the UI in a window.
-// Session data lives in ~/Library/Application Support/Noteplus-PadPad instead of the read-only bundle.
+// Session data lives in ~/Library/Application Support/NoteplusPP instead of the read-only bundle.
 
 const { app, BrowserWindow, Menu, shell, dialog } = require('electron');
 const fs = require('fs');
