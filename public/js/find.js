@@ -83,7 +83,7 @@ function expandReplacement(rep, m, mode) {
   return out;
 }
 
-// Converts a Noteplus++ replacement into a String.replace replacement string (used server-side).
+// Converts a Noteplus-PadPad replacement into a String.replace replacement string (used server-side).
 function jsReplacementFor(rep, mode) {
   if (mode === 'normal') return rep.replace(/\$/g, '$$$$');
   if (mode === 'extended') return unescapeExtended(rep).replace(/\$/g, '$$$$');
