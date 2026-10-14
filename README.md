@@ -34,7 +34,7 @@ Open the `.dmg` and drag Notepluspp into Applications.
 
 ### First launch
 
-Apple has not notarized the app yet, so macOS blocks it the first time you open it. To allow it:
+Notepluspp is free, and it isn't signed through Apple's paid developer program. macOS blocks unsigned apps the first time you open them. To allow it:
 
 1. Double-click Notepluspp in Applications. macOS says it can't verify the app. Click Done.
 2. Open System Settings, then Privacy & Security.
@@ -85,7 +85,7 @@ Pushing a version tag builds the app on GitHub Actions and attaches the files to
     git tag v1.0.0
     git push origin v1.0.0
 
-The workflow signs builds ad hoc, without a developer identity. To ship a notarized build, which skips the first-launch steps above, add an Apple Developer ID certificate and set the notarization variables described in the [electron-builder docs](https://www.electron.build/code-signing-mac).
+The workflow signs builds ad hoc, without a developer identity. If you fork the project and have an Apple Developer ID, you can ship a notarized build, which skips the first-launch steps above. Set the notarization variables described in the [electron-builder docs](https://www.electron.build/code-signing-mac).
 
 ## Layout
 
@@ -97,4 +97,6 @@ The workflow signs builds ad hoc, without a developer identity. To ship a notari
 
 ## License
 
-Notepluspp uses the MIT license. See [LICENSE](LICENSE). CodeMirror 5 also uses the MIT license.
+Notepluspp uses the MIT license. See [LICENSE](LICENSE).
+
+It builds on [CodeMirror 5](https://codemirror.net/5/) and [Electron](https://www.electronjs.org/), which both use the MIT license. The lettering in the logo is drawn from [Fredoka](https://github.com/hafontia/Fredoka-One), which uses the SIL Open Font License.

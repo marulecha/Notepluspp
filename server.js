@@ -28,6 +28,8 @@ const MIME = {
   '.woff': 'font/woff', '.woff2': 'font/woff2', '.mp4': 'video/mp4', '.mp3': 'audio/mpeg', '.wasm': 'application/wasm',
 };
 
+const PREVIEW_HEADERS = { 'Content-Security-Policy': 'sandbox allow-scripts allow-forms allow-modals allow-popups' };
+
 // Filled in by start() once the port is known.
 const ALLOWED_HOSTS = new Set();
 
@@ -376,13 +378,13 @@ const routes = {
   },
 };
 
-async function serveStatic(res, baseDir, rel) {
+async function serveStatic(res, baseDir, rel, headers = {}) {
   const file = path.normalize(path.join(baseDir, rel));
   if (!file.startsWith(baseDir)) return send(res, 403, 'Forbidden');
   try {
     const st = await fsp.stat(file);
-    if (st.isDirectory()) return serveStatic(res, baseDir, path.join(rel, 'index.html'));
-    res.writeHead(200, { 'Content-Type': MIME[path.extname(file).toLowerCase()] || 'application/octet-stream', 'Cache-Control': 'no-cache' });
+    if (st.isDirectory()) return serveStatic(res, baseDir, path.join(rel, 'index.html'), headers);
+    res.writeHead(200, { 'Content-Type': MIME[path.extname(file).toLowerCase()] || 'application/octet-stream', 'Cache-Control': 'no-cache', ...headers });
     fs.createReadStream(file).pipe(res);
   } catch {
     send(res, 404, 'Not found');
@@ -407,9 +409,11 @@ const server = http.createServer(async (req, res) => {
       return json(res, await handler(Object.fromEntries(url.searchParams), body));
     }
     // Serves a local file as-is so HTML files can be viewed with their relative assets.
+    // The sandbox gives the page its own opaque origin, so its scripts still run but the
+    // origin check above refuses their calls to the file API.
     if (pathname.startsWith('/preview/')) {
       const file = absPath(pathname.slice('/preview'.length));
-      return serveStatic(res, path.parse(file).root, path.relative(path.parse(file).root, file));
+      return serveStatic(res, path.parse(file).root, path.relative(path.parse(file).root, file), PREVIEW_HEADERS);
     }
     if (pathname.startsWith('/cm/')) return serveStatic(res, CM_DIR, pathname.slice(4));
     return serveStatic(res, PUBLIC_DIR, pathname === '/' ? 'index.html' : pathname.slice(1));
