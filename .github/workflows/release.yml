@@ -14,12 +14,20 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 24
-          cache: npm
-      - run: npm ci
-      - run: npm run dist
+      - name: Build a universal app for Apple silicon and Intel
+        run: |
+          xcodebuild -project macos/Notepluspp.xcodeproj -scheme Notepluspp -configuration Release \
+            -derivedDataPath dist/DerivedData ARCHS="arm64 x86_64" ONLY_ACTIVE_ARCH=NO \
+            MARKETING_VERSION="${GITHUB_REF_NAME#v}" build
+      - name: Package the .dmg and .zip
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          APP=dist/DerivedData/Build/Products/Release/Notepluspp.app
+          mkdir dist/dmg
+          cp -R "$APP" dist/dmg/
+          ln -s /Applications dist/dmg/Applications
+          hdiutil create -volname Notepluspp -srcfolder dist/dmg -format UDZO "dist/Notepluspp-$VERSION.dmg"
+          ditto -c -k --keepParent "$APP" "dist/Notepluspp-$VERSION.zip"
       - uses: softprops/action-gh-release@v2
         with:
           name: Notepluspp ${{ github.ref_name }}

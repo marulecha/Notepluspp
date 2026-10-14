@@ -21,14 +21,7 @@ Notepluspp is an independent project. It is not affiliated with or endorsed by t
 
 ## Download
 
-Get the latest `.dmg` from the [Releases page](../../releases/latest).
-
-| Your Mac | File |
-| --- | --- |
-| Apple silicon, M1 and later | `Notepluspp-<version>-arm64.dmg` |
-| Intel | `Notepluspp-<version>-x64.dmg` |
-
-To check which one you have, open the Apple menu, choose About This Mac, and look at the Chip or Processor line.
+Get the latest `Notepluspp-<version>.dmg` from the [Releases page](../../releases/latest). The same file runs on Apple silicon and Intel Macs with macOS 12 or later.
 
 Open the `.dmg` and drag Notepluspp into Applications.
 
@@ -64,19 +57,25 @@ You can open files from Finder with Open With, by dropping them on the Dock icon
 
 ## Build from source
 
-You need Node.js 22.12 or later.
+Notepluspp is a native Swift app. You need Xcode 15 or later.
 
     git clone https://github.com/marulecha/Notepluspp.git
     cd Notepluspp
-    npm install
+    open macos/Notepluspp.xcodeproj
 
-| Command | What it does |
-| --- | --- |
-| `npm run app` | Runs the desktop app from source. |
-| `npm run dist` | Builds `.dmg` and `.zip` files for Apple silicon and Intel into `dist/`. |
-| `npm start` | Runs the editor in your browser at http://localhost:7777 instead. |
+In Xcode, press Cmd+R to build and run. To build from Terminal instead:
 
-In browser mode the server listens on 127.0.0.1 only, and session data goes to `data/session.json`. You can open a file directly with `http://localhost:7777/?open=/path/to/file&line=12`. The browser keeps Cmd+N, Cmd+W and Cmd+T for itself, so use Ctrl+N and Ctrl+W there.
+    xcodebuild -project macos/Notepluspp.xcodeproj -scheme Notepluspp -configuration Release build
+
+Builds from source use the Debug configuration by default, and Debug builds keep their session in `~/Library/Application Support/Notepluspp Debug`. They don't touch the session of an installed copy.
+
+### Browser mode
+
+You can also run the editor in your browser. This needs Node.js 18 or later, and no `npm install`.
+
+    npm start
+
+This serves the editor at http://localhost:7777. The server listens on 127.0.0.1 only, and session data goes to `data/session.json`. You can open a file directly with `http://localhost:7777/?open=/path/to/file&line=12`. The browser keeps Cmd+N, Cmd+W and Cmd+T for itself, so use Ctrl+N and Ctrl+W there.
 
 ### Releases
 
@@ -85,18 +84,20 @@ Pushing a version tag builds the app on GitHub Actions and attaches the files to
     git tag v1.0.0
     git push origin v1.0.0
 
-The workflow signs builds ad hoc, without a developer identity. If you fork the project and have an Apple Developer ID, you can ship a notarized build, which skips the first-launch steps above. Set the notarization variables described in the [electron-builder docs](https://www.electron.build/code-signing-mac).
+The workflow builds one universal app for Apple silicon and Intel, and signs it ad hoc, without a developer identity. If you fork the project and have an Apple Developer ID, you can sign and notarize the build in the workflow, which skips the first-launch steps above.
 
 ## Layout
 
-- `electron/main.js` starts the server inside the app on a free local port and opens the window. It also builds the native menu and handles files opened from Finder.
-- `electron/preload.js` gives the page the real path of files dropped from Finder.
-- `server.js` serves the UI and the file API. The API reads, writes and lists files, runs find and replace across files, and stores the session.
-- `public/js/` is the editor UI, built on CodeMirror 5.
-- `build/brand/make.py` generates the artwork from `build/brand/mascot.svg` and the Fredoka font. `build/icon.svg` and `public/favicon.svg` are the app icon, `public/logo.svg` is the mark in the About dialog, and `public/logo-wordmark.svg` is the README header, with `public/logo-wordmark-dark.svg` for GitHub's dark theme. `build/icon.png` is the 1024px render of `build/icon.svg`.
+- `macos/Notepluspp/` is the Swift app. It opens a window with a WKWebView, the macOS system web view, and shows the editor UI from `public/` through a `notepluspp://` URL scheme. The same scheme answers the page's `/api/` calls, so the page runs unchanged from browser mode. The app also builds the menu bar, opens files from Finder and the Dock, and prints.
+  - `FileAPI.swift` reads, writes and lists files and stores the session. `TextCodec.swift` handles the text encodings.
+  - `FileSearch.swift` runs Find in Files and Replace in Files. Matching runs in JavaScriptCore, so the regular expressions behave exactly as they do in the editor.
+  - `PreviewWindowController.swift` shows "Launch in browser" previews in their own window. Their web view has no file API.
+- `server.js` serves the same UI and API for browser mode.
+- `public/js/` is the editor UI, built on CodeMirror 5. `public/cm/` is CodeMirror 5.65.21.
+- `build/brand/make.py` generates the artwork from `build/brand/mascot.svg` and the Fredoka font. `build/icon.svg` and `public/favicon.svg` are the app icon, `public/logo.svg` is the mark in the About dialog, and `public/logo-wordmark.svg` is the README header, with `public/logo-wordmark-dark.svg` for GitHub's dark theme. `build/icon.png` is the 1024px render of `build/icon.svg`. After changing it, run `macos/make-icon.sh` to rebuild the app's `AppIcon.icns`.
 
 ## License
 
 Notepluspp uses the MIT license. See [LICENSE](LICENSE).
 
-It builds on [CodeMirror 5](https://codemirror.net/5/) and [Electron](https://www.electronjs.org/), which both use the MIT license. The lettering in the logo is drawn from [Fredoka](https://github.com/hafontia/Fredoka-One), which uses the SIL Open Font License.
+It builds on [CodeMirror 5](https://codemirror.net/5/), which uses the MIT license. The lettering in the logo is drawn from [Fredoka](https://github.com/hafontia/Fredoka-One), which uses the SIL Open Font License.

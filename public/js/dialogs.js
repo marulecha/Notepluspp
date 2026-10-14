@@ -644,6 +644,8 @@ function printDocument(tab = App.active) {
   const html = `<!DOCTYPE html><html><head><meta charset="utf-8"><title>${escapeHtml(tab.path || tab.title)}</title><style>${EXPORT_CSS}
 @page{margin:15mm}.hdr{font:9pt Arial;color:#444;border-bottom:1px solid #999;margin:0 8px;padding-bottom:2px;display:flex;justify-content:space-between}</style></head>
 <body><div class="hdr"><span>${escapeHtml(tab.path || tab.title)}</span><span>${new Date().toLocaleString()}</span></div><pre>${highlightedHtml(tab)}</pre></body></html>`;
+  // The desktop app's web view can't print from an iframe, so it prints the HTML natively.
+  if (window.desktop) { window.desktop.print(html); return; }
   const frame = el('iframe', { style: { position: 'fixed', right: '0', bottom: '0', width: '0', height: '0', border: '0' } });
   document.body.append(frame);
   frame.contentDocument.open();

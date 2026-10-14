@@ -62,15 +62,13 @@ async function main() {
   $('#titlebar').addEventListener('dblclick', () => toggleFullscreen());
 
   // Files dropped from the operating system open as new documents. A browser hides their path,
-  // so they open untitled; the desktop app exposes the path and opens the file itself.
+  // so they open untitled. The desktop app catches drops from Finder and opens them by path.
   document.addEventListener('dragover', (e) => { if (e.dataTransfer.types.includes('Files')) e.preventDefault(); });
   document.addEventListener('drop', async (e) => {
     if (!e.dataTransfer.files.length) return;
     e.preventDefault();
     e.stopPropagation();
     for (const f of e.dataTransfer.files) {
-      const filePath = window.desktop && window.desktop.pathForFile(f);
-      if (filePath) { await openFile(filePath); continue; }
       const text = await f.text();
       const lang = detectLanguage(f.name, text.slice(0, 200).split(/\r?\n/)[0]);
       const eol = (text.match(/\r\n|\n|\r/) || [App.settings.newDocEol])[0];

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>Notepluspp</string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>txt</string>
+				<string>text</string>
+				<string>log</string>
+				<string>md</string>
+				<string>markdown</string>
+				<string>ini</string>
+				<string>cfg</string>
+				<string>conf</string>
+				<string>toml</string>
+				<string>yaml</string>
+				<string>yml</string>
+				<string>json</string>
+				<string>xml</string>
+				<string>csv</string>
+				<string>tsv</string>
+				<string>html</string>
+				<string>htm</string>
+				<string>css</string>
+				<string>scss</string>
+				<string>less</string>
+				<string>js</string>
+				<string>mjs</string>
+				<string>cjs</string>
+				<string>jsx</string>
+				<string>ts</string>
+				<string>tsx</string>
+				<string>py</string>
+				<string>rb</string>
+				<string>php</string>
+				<string>pl</string>
+				<string>lua</string>
+				<string>sh</string>
+				<string>bash</string>
+				<string>zsh</string>
+				<string>c</string>
+				<string>h</string>
+				<string>cpp</string>
+				<string>hpp</string>
+				<string>cc</string>
+				<string>cs</string>
+				<string>java</string>
+				<string>kt</string>
+				<string>go</string>
+				<string>rs</string>
+				<string>swift</string>
+				<string>sql</string>
+				<string>bat</string>
+				<string>ps1</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>Text document</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Alternate</string>
+		</dict>
+	</array>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIconFile</key>
+	<string>AppIcon</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>$(MARKETING_VERSION)</string>
+	<key>CFBundleVersion</key>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.developer-tools</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
+	<key>NSDesktopFolderUsageDescription</key>
+	<string>Notepluspp opens and saves the files you choose on your Desktop.</string>
+	<key>NSDocumentsFolderUsageDescription</key>
+	<string>Notepluspp opens and saves the files you choose in your Documents folder.</string>
+	<key>NSDownloadsFolderUsageDescription</key>
+	<string>Notepluspp opens and saves the files you choose in your Downloads folder.</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright © 2026 Άγης</string>
+	<key>NSNetworkVolumesUsageDescription</key>
+	<string>Notepluspp opens and saves the files you choose on network drives.</string>
+	<key>NSPrincipalClass</key>
+	<string>NSApplication</string>
+	<key>NSRemovableVolumesUsageDescription</key>
+	<string>Notepluspp opens and saves the files you choose on external drives.</string>
+	<key>NSSupportsAutomaticTermination</key>
+	<false/>
+	<key>NSSupportsSuddenTermination</key>
+	<false/>
+</dict>
+</plist>

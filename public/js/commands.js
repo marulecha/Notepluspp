@@ -360,7 +360,7 @@ async function clipboardOp(kind) {
   else if (kind === 'cut') { if (!editable()) return; if (cm.somethingSelected()) { await copyText(cm.getSelections().join(App.active.eol)); cm.replaceSelection(''); } else cutLine(); }
   else if (kind === 'paste') {
     if (!editable()) return;
-    try { const t = await navigator.clipboard.readText(); cm.replaceSelection(t, 'end', 'paste'); }
+    try { const t = await readClipboardText(); cm.replaceSelection(t, 'end', 'paste'); }
     catch { msgBox('The browser blocked clipboard access. Use Ctrl+V (Cmd+V on macOS) instead.', { icon: 'warn' }); }
   } else if (kind === 'delete') {
     if (!editable()) return;
@@ -681,7 +681,7 @@ function defineCommands() {
   def('search.bmCut', 'Cut Bookmarked Lines', null, () => { const ls = bookmarkedLines(); copyText(ls.map((l) => docx().getLine(l)).join(tab().eol)); removeLinesSet(new Set(ls)); });
   def('search.bmCopy', 'Copy Bookmarked Lines', null, () => copyText(bookmarkedLines().map((l) => docx().getLine(l)).join(tab().eol)));
   def('search.bmPaste', 'Paste to (Replace) Bookmarked Lines', null, async () => {
-    let t; try { t = await navigator.clipboard.readText(); } catch { return; }
+    let t; try { t = await readClipboardText(); } catch { return; }
     const doc = docx();
     cmx().operation(() => { for (const l of bookmarkedLines().reverse()) doc.replaceRange(t.replace(/\r?\n$/, ''), P(l, 0), P(l, doc.getLine(l).length)); });
   });

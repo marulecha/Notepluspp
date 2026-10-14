@@ -169,6 +169,11 @@ async function hashText(algo, text) {
   return Array.from(new Uint8Array(buf), (b) => b.toString(16).padStart(2, '0')).join('');
 }
 
+// The desktop app reads the clipboard natively. A browser may ask the user for permission.
+function readClipboardText() {
+  return window.desktop ? window.desktop.readClipboard() : navigator.clipboard.readText();
+}
+
 async function copyText(text) {
   try {
     await navigator.clipboard.writeText(text);

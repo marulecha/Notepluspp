@@ -12,7 +12,6 @@ const { execFile } = require('child_process');
 const HOST = '127.0.0.1';
 const ROOT = __dirname;
 const PUBLIC_DIR = path.join(ROOT, 'public');
-const CM_DIR = path.join(ROOT, 'node_modules', 'codemirror');
 // The desktop app moves this to ~/Library/Application Support, since the app bundle is read-only.
 let DATA_DIR = path.join(ROOT, 'data');
 let SESSION_FILE = path.join(DATA_DIR, 'session.json');
@@ -415,7 +414,6 @@ const server = http.createServer(async (req, res) => {
       const file = absPath(pathname.slice('/preview'.length));
       return serveStatic(res, path.parse(file).root, path.relative(path.parse(file).root, file), PREVIEW_HEADERS);
     }
-    if (pathname.startsWith('/cm/')) return serveStatic(res, CM_DIR, pathname.slice(4));
     return serveStatic(res, PUBLIC_DIR, pathname === '/' ? 'index.html' : pathname.slice(1));
   } catch (err) {
     fail(res, err, err.code === 'ENOENT' ? 404 : 400);

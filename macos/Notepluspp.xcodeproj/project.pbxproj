@@ -1,0 +1,256 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7D2E8F1A615A1C75D07154BA /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97F53879370B1587F84EE79 /* main.swift */; };
+		1D81FBFED3A359162AA66663 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420C7D39AEB3C455B962A93 /* AppDelegate.swift */; };
+		D01B0867C7FCF72106681F7D /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3587EF858875B2060782F571 /* MainMenu.swift */; };
+		C7603C3662234A56C855A3E5 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0162FACCFC0B5F37F9BDF4EF /* MainWindowController.swift */; };
+		8A4382A030585495F10074D7 /* PreviewWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAE570192D89B0F97EB99FC /* PreviewWindowController.swift */; };
+		F0FEA1120B3F51E5B9847E31 /* SchemeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02D4F3BB341A60366CA813F /* SchemeHandler.swift */; };
+		50AA5DDE22FE02C859719461 /* FileAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E4951D535768752A8F2139 /* FileAPI.swift */; };
+		6DA3783484EE4758BCE1CF98 /* FileSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C8FBF684D45D9D0E1DB25EC /* FileSearch.swift */; };
+		50261635D74ABACA75D8F527 /* TextCodec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B074FB902242C02C562797 /* TextCodec.swift */; };
+		6768241D688920621BB4CD6F /* AppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = F4C760E5AE5540FCD0D0E2D9 /* AppIcon.icns */; };
+		0F6B958309F51299BE279639 /* public in Resources */ = {isa = PBXBuildFile; fileRef = A96B23D44E1C63E16D8B2180 /* public */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B97F53879370B1587F84EE79 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		0420C7D39AEB3C455B962A93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3587EF858875B2060782F571 /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
+		0162FACCFC0B5F37F9BDF4EF /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
+		ACAE570192D89B0F97EB99FC /* PreviewWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewWindowController.swift; sourceTree = "<group>"; };
+		F02D4F3BB341A60366CA813F /* SchemeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeHandler.swift; sourceTree = "<group>"; };
+		26E4951D535768752A8F2139 /* FileAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileAPI.swift; sourceTree = "<group>"; };
+		3C8FBF684D45D9D0E1DB25EC /* FileSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSearch.swift; sourceTree = "<group>"; };
+		71B074FB902242C02C562797 /* TextCodec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCodec.swift; sourceTree = "<group>"; };
+		F4C760E5AE5540FCD0D0E2D9 /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppIcon.icns; sourceTree = "<group>"; };
+		7ECA4F52C504D53520A02786 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A96B23D44E1C63E16D8B2180 /* public */ = {isa = PBXFileReference; lastKnownFileType = folder; name = public; path = ../public; sourceTree = "<group>"; };
+		F5BF48AA40CAD7891EB709FC /* Notepluspp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notepluspp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4F6F5CC3FCCF73F75AE9CCF4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		63A9F0EA7BB98050796B649E = {
+			isa = PBXGroup;
+			children = (
+				663C74993C543A6357C735A1 /* Notepluspp */,
+				A96B23D44E1C63E16D8B2180 /* public */,
+				9B33FED2BE3086184B25A8F8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		663C74993C543A6357C735A1 /* Notepluspp */ = {
+			isa = PBXGroup;
+			children = (
+				B97F53879370B1587F84EE79 /* main.swift */,
+				0420C7D39AEB3C455B962A93 /* AppDelegate.swift */,
+				3587EF858875B2060782F571 /* MainMenu.swift */,
+				0162FACCFC0B5F37F9BDF4EF /* MainWindowController.swift */,
+				ACAE570192D89B0F97EB99FC /* PreviewWindowController.swift */,
+				F02D4F3BB341A60366CA813F /* SchemeHandler.swift */,
+				26E4951D535768752A8F2139 /* FileAPI.swift */,
+				3C8FBF684D45D9D0E1DB25EC /* FileSearch.swift */,
+				71B074FB902242C02C562797 /* TextCodec.swift */,
+				F4C760E5AE5540FCD0D0E2D9 /* AppIcon.icns */,
+				7ECA4F52C504D53520A02786 /* Info.plist */,
+			);
+			path = Notepluspp;
+			sourceTree = "<group>";
+		};
+		9B33FED2BE3086184B25A8F8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F5BF48AA40CAD7891EB709FC /* Notepluspp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		42AEFBAE01D2DFD981F7DA7D /* Notepluspp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD5B959833E219C36151D647 /* Build configuration list for PBXNativeTarget "Notepluspp" */;
+			buildPhases = (
+				F2AB5FB218DA8B84623F4557 /* Sources */,
+				4F6F5CC3FCCF73F75AE9CCF4 /* Frameworks */,
+				55B558C7EF820E6E00E5993B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Notepluspp;
+			productName = Notepluspp;
+			productReference = F5BF48AA40CAD7891EB709FC /* Notepluspp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		46F86FAA6BBF9AC94A7E4595 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+			};
+			buildConfigurationList = 2CA666E9AB7FD185F98B8152 /* Build configuration list for PBXProject "Notepluspp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 63A9F0EA7BB98050796B649E;
+			productRefGroup = 9B33FED2BE3086184B25A8F8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				42AEFBAE01D2DFD981F7DA7D /* Notepluspp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		55B558C7EF820E6E00E5993B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6768241D688920621BB4CD6F /* AppIcon.icns in Resources */,
+				0F6B958309F51299BE279639 /* public in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F2AB5FB218DA8B84623F4557 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D2E8F1A615A1C75D07154BA /* main.swift in Sources */,
+				1D81FBFED3A359162AA66663 /* AppDelegate.swift in Sources */,
+				D01B0867C7FCF72106681F7D /* MainMenu.swift in Sources */,
+				C7603C3662234A56C855A3E5 /* MainWindowController.swift in Sources */,
+				8A4382A030585495F10074D7 /* PreviewWindowController.swift in Sources */,
+				F0FEA1120B3F51E5B9847E31 /* SchemeHandler.swift in Sources */,
+				50AA5DDE22FE02C859719461 /* FileAPI.swift in Sources */,
+				6DA3783484EE4758BCE1CF98 /* FileSearch.swift in Sources */,
+				50261635D74ABACA75D8F527 /* TextCodec.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		2D53B50AE2273FABAAF8B8FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D4B2141B77146EF47E948847 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		FA7C752E798F561D7D156D98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = NO;
+				INFOPLIST_FILE = Notepluspp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.noteplus-padpad.app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		22F75101C717335ACF4089A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = NO;
+				INFOPLIST_FILE = Notepluspp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.noteplus-padpad.app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2CA666E9AB7FD185F98B8152 /* Build configuration list for PBXProject "Notepluspp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D53B50AE2273FABAAF8B8FA /* Debug */,
+				D4B2141B77146EF47E948847 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD5B959833E219C36151D647 /* Build configuration list for PBXNativeTarget "Notepluspp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA7C752E798F561D7D156D98 /* Debug */,
+				22F75101C717335ACF4089A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 46F86FAA6BBF9AC94A7E4595 /* Project object */;
+}

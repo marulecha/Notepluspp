@@ -3,3 +3,5 @@ dist/
 # Session state from browser mode: open tabs and unsaved text.
 data/
 .DS_Store
+# Xcode per-user state.
+xcuserdata/
