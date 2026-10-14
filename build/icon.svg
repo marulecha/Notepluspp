@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
-  <!-- macOS app icon: public/logo-padpad.svg on a rounded square, sized to Apple's 824px icon grid. -->
+  <!-- macOS app icon: public/logo.svg on a rounded square, sized to Apple's 824px icon grid. -->
   <defs>
     <linearGradient id="tile" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#f4fbe9"/><stop offset="1" stop-color="#d3ecb0"/>

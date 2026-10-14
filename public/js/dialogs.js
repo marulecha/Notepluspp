@@ -173,7 +173,7 @@ async function summaryDialog() {
 
 function aboutDialog() {
   const body = el('div', { class: 'about' },
-    el('img', { class: 'about-logo', src: 'logo-padpad.svg', alt: APP_NAME }),
+    el('img', { class: 'about-logo', src: 'logo.svg', alt: APP_NAME }),
     el('div', {},
       el('div', { class: 'about-title' }, `${APP_NAME} v${APP_VERSION}   (64-bit)`),
       el('div', {}, `Build time: ${new Date(document.lastModified).toDateString()}`),
