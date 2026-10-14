@@ -1,10 +1,10 @@
-<p align="center"><img src="public/logo.svg" width="200" alt="Notepluspp logo"></p>
+<p align="center"><img src="public/logo.svg" width="200" alt="Noteplus++ logo"></p>
 
-# Notepluspp
+# Noteplus++
 
-The name is pronounced "note plus pad pad". Notepluspp is a text and code editor for macOS modeled on Notepad++ for Windows. It has the same menus, toolbar, tabs and keyboard shortcuts.
+Noteplus++ is a text and code editor for macOS modeled on Notepad++ for Windows. Its file and project name is Noteplus-padpad, said "note plus pad pad". It has the same menus, toolbar, tabs and keyboard shortcuts.
 
-![Notepluspp editing a JavaScript file](docs/screenshot.png)
+![Noteplus++ editing a JavaScript file](docs/screenshot.png)
 
 ## Download
 
@@ -12,26 +12,26 @@ Get the latest `.dmg` from the [Releases page](../../releases/latest).
 
 | Your Mac | File |
 | --- | --- |
-| Apple silicon, M1 and later | `Notepluspp-<version>-arm64.dmg` |
-| Intel | `Notepluspp-<version>-x64.dmg` |
+| Apple silicon, M1 and later | `Noteplus-padpad-<version>-arm64.dmg` |
+| Intel | `Noteplus-padpad-<version>-x64.dmg` |
 
 To check which one you have, open the Apple menu, choose About This Mac, and look at the Chip or Processor line.
 
-Open the `.dmg` and drag Notepluspp into Applications.
+Open the `.dmg` and drag Noteplus-padpad into Applications.
 
 ### First launch
 
 Apple has not notarized the app yet, so macOS blocks it the first time you open it. To allow it:
 
-1. Double-click Notepluspp in Applications. macOS says it can't verify the app. Click Done.
+1. Double-click Noteplus-padpad in Applications. macOS says it can't verify the app. Click Done.
 2. Open System Settings, then Privacy & Security.
-3. Scroll to the Security section. Next to the message about Notepluspp, click Open Anyway, then confirm.
+3. Scroll to the Security section. Next to the message about Noteplus++, click Open Anyway, then confirm.
 
 You only do this once. If macOS instead says the app "is damaged", run this in Terminal and open it again:
 
-    xattr -dr com.apple.quarantine /Applications/Notepluspp.app
+    xattr -dr com.apple.quarantine /Applications/Noteplus-padpad.app
 
-When you first open a file in Documents, Desktop or Downloads, macOS asks whether Notepluspp may access that folder. Click Allow.
+When you first open a file in Documents, Desktop or Downloads, macOS asks whether Noteplus++ may access that folder. Click Allow.
 
 ## Features
 
@@ -47,7 +47,7 @@ When you first open a file in Documents, Desktop or Downloads, macOS asks whethe
 
 On macOS, Cmd works wherever Notepad++ uses Ctrl. Cmd+S saves, Cmd+F finds, Cmd+W closes the tab.
 
-You can open files from Finder with Open With, by dropping them on the Dock icon, or by dropping them on the window. The app saves its session in `~/Library/Application Support/Notepluspp`.
+You can open files from Finder with Open With, by dropping them on the Dock icon, or by dropping them on the window. The app saves its session in `~/Library/Application Support/Noteplus-padpad`.
 
 ## Build from source
 
@@ -84,4 +84,4 @@ The workflow signs builds ad hoc, without a developer identity. To ship a notari
 
 ## License
 
-Notepluspp uses the MIT license. See [LICENSE](LICENSE). CodeMirror 5 also uses the MIT license.
+Noteplus++ uses the MIT license. See [LICENSE](LICENSE). CodeMirror 5 also uses the MIT license.

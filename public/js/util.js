@@ -1,7 +1,7 @@
 'use strict';
 // Shared helpers: DOM, server API, paths, keys, hashing.
 
-const APP_NAME = 'Notepluspp';
+const APP_NAME = 'Noteplus++';
 const APP_VERSION = '1.0';
 const isMac = /Mac|iPhone|iPad/.test(navigator.platform);
 

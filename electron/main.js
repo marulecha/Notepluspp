@@ -1,6 +1,6 @@
 'use strict';
 // Desktop app: runs server.js inside Electron on a free local port and shows the UI in a window.
-// Session data lives in ~/Library/Application Support/Notepluspp instead of the read-only bundle.
+// Session data lives in ~/Library/Application Support/Noteplus-padpad instead of the read-only bundle.
 
 const { app, BrowserWindow, Menu, shell, dialog } = require('electron');
 const fs = require('fs');
@@ -8,6 +8,8 @@ const path = require('path');
 const server = require('../server');
 
 const STATE_FILE = path.join(app.getPath('userData'), 'window.json');
+// The name people see. app.name is the file and folder name, Noteplus-padpad.
+const DISPLAY_NAME = 'Noteplus++';
 
 let baseUrl = null;
 let win = null;
@@ -66,7 +68,7 @@ function createWindow() {
     x: state.x, y: state.y, width: state.width, height: state.height,
     minWidth: 600, minHeight: 400,
     show: false,
-    title: 'Notepluspp',
+    title: DISPLAY_NAME,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
@@ -120,17 +122,17 @@ function buildMenu() {
   const isMac = process.platform === 'darwin';
   const template = [
     ...(isMac ? [{
-      label: app.name,
+      label: DISPLAY_NAME,
       submenu: [
-        cmd(`About ${app.name}`, 'help.about'),
+        cmd(`About ${DISPLAY_NAME}`, 'help.about'),
         { type: 'separator' },
         cmd('Settings...', 'settings.prefs', 'Cmd+,'),
         { type: 'separator' },
         { role: 'services' },
         { type: 'separator' },
-        { role: 'hide' }, { role: 'hideOthers' }, { role: 'unhide' },
+        { role: 'hide', label: `Hide ${DISPLAY_NAME}` }, { role: 'hideOthers' }, { role: 'unhide' },
         { type: 'separator' },
-        { role: 'quit' },
+        { role: 'quit', label: `Quit ${DISPLAY_NAME}` },
       ],
     }] : []),
     {
@@ -176,7 +178,7 @@ function buildMenu() {
     { role: 'windowMenu' },
     {
       role: 'help',
-      submenu: [cmd(`About ${app.name}`, 'help.about')],
+      submenu: [cmd(`About ${DISPLAY_NAME}`, 'help.about')],
     },
   ];
   Menu.setApplicationMenu(Menu.buildFromTemplate(template));
@@ -209,7 +211,7 @@ app.whenReady().then(async () => {
   try {
     port = await server.start({ port: 0, dataDir: app.getPath('userData') });
   } catch (err) {
-    dialog.showErrorBox(`${app.name} could not start`, err.message);
+    dialog.showErrorBox(`${DISPLAY_NAME} could not start`, err.message);
     app.quit();
     return;
   }
