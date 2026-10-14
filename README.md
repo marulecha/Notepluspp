@@ -2,7 +2,7 @@
 
 # Notepluspp
 
-Said "note plus pad pad". A text and code editor for macOS that works like Notepad++ on Windows: the same menus, toolbar, tabs and keyboard shortcuts.
+The name is pronounced "note plus pad pad". Notepluspp is a text and code editor for macOS modeled on Notepad++ for Windows. It has the same menus, toolbar, tabs and keyboard shortcuts.
 
 ![Notepluspp editing a JavaScript file](docs/screenshot.png)
 
@@ -12,7 +12,7 @@ Get the latest `.dmg` from the [Releases page](../../releases/latest).
 
 | Your Mac | File |
 | --- | --- |
-| Apple silicon (M1 and later) | `Notepluspp-<version>-arm64.dmg` |
+| Apple silicon, M1 and later | `Notepluspp-<version>-arm64.dmg` |
 | Intel | `Notepluspp-<version>-x64.dmg` |
 
 To check which one you have, open the Apple menu, choose About This Mac, and look at the Chip or Processor line.
@@ -21,7 +21,7 @@ Open the `.dmg` and drag Notepluspp into Applications.
 
 ### First launch
 
-The app is not notarized by Apple yet, so macOS blocks it the first time you open it. To allow it:
+Apple has not notarized the app yet, so macOS blocks it the first time you open it. To allow it:
 
 1. Double-click Notepluspp in Applications. macOS says it can't verify the app. Click Done.
 2. Open System Settings, then Privacy & Security.
@@ -42,12 +42,12 @@ When you first open a file in Documents, Desktop or Downloads, macOS asks whethe
 - Line operations: sort, remove duplicates, join, split, move, trim.
 - Bookmarks, a function list, a document list and a folder workspace panel.
 - Macro recording and playback.
-- Encodings and line-ending conversion (Windows, Unix, Mac).
+- Encoding conversion, and line-ending conversion between Windows, Unix and Mac formats.
 - Dark mode, themes, and a shortcut mapper.
 
 On macOS, Cmd works wherever Notepad++ uses Ctrl. Cmd+S saves, Cmd+F finds, Cmd+W closes the tab.
 
-You can open files from Finder with Open With, by dropping them on the Dock icon, or by dropping them on the window. Session data lives in `~/Library/Application Support/Notepluspp`.
+You can open files from Finder with Open With, by dropping them on the Dock icon, or by dropping them on the window. The app saves its session in `~/Library/Application Support/Notepluspp`.
 
 ## Build from source
 
@@ -72,16 +72,16 @@ Pushing a version tag builds the app on GitHub Actions and attaches the files to
     git tag v1.0.0
     git push origin v1.0.0
 
-Builds are ad-hoc signed. To ship a notarized build, which skips the first-launch steps above, add an Apple Developer ID certificate and set the notarization variables described in the [electron-builder docs](https://www.electron.build/code-signing-mac).
+The workflow signs builds ad hoc, without a developer identity. To ship a notarized build, which skips the first-launch steps above, add an Apple Developer ID certificate and set the notarization variables described in the [electron-builder docs](https://www.electron.build/code-signing-mac).
 
 ## Layout
 
 - `electron/main.js` starts the server inside the app on a free local port and opens the window. It also builds the native menu and handles files opened from Finder.
 - `electron/preload.js` gives the page the real path of files dropped from Finder.
-- `server.js` is the file access API (read, write, list, find and replace in files, session) and serves the UI.
+- `server.js` serves the UI and the file API. The API reads, writes and lists files, runs find and replace across files, and stores the session.
 - `public/js/` is the editor UI, built on CodeMirror 5.
-- `public/logo-padpad.svg` is the logo, also used as the favicon. `build/icon.svg` places it on the app icon tile, and `build/icon.png` is rendered from that.
+- `public/logo.svg` is the logo, and `public/favicon.svg` is a copy of it. `build/icon.svg` places the logo on the app icon tile, and `build/icon.png` is the 1024px render of that file.
 
 ## License
 
-MIT. See [LICENSE](LICENSE). CodeMirror 5 is also MIT licensed.
+Notepluspp uses the MIT license. See [LICENSE](LICENSE). CodeMirror 5 also uses the MIT license.
