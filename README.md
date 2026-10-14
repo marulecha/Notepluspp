@@ -1,0 +1,87 @@
+<p align="center"><img src="public/logo.svg" width="200" alt="Notepluspp logo"></p>
+
+# Notepluspp
+
+Said "note plus pad pad". A text and code editor for macOS that works like Notepad++ on Windows: the same menus, toolbar, tabs and keyboard shortcuts.
+
+![Notepluspp editing a JavaScript file](docs/screenshot.png)
+
+## Download
+
+Get the latest `.dmg` from the [Releases page](../../releases/latest).
+
+| Your Mac | File |
+| --- | --- |
+| Apple silicon (M1 and later) | `Notepluspp-<version>-arm64.dmg` |
+| Intel | `Notepluspp-<version>-x64.dmg` |
+
+To check which one you have, open the Apple menu, choose About This Mac, and look at the Chip or Processor line.
+
+Open the `.dmg` and drag Notepluspp into Applications.
+
+### First launch
+
+The app is not notarized by Apple yet, so macOS blocks it the first time you open it. To allow it:
+
+1. Double-click Notepluspp in Applications. macOS says it can't verify the app. Click Done.
+2. Open System Settings, then Privacy & Security.
+3. Scroll to the Security section. Next to the message about Notepluspp, click Open Anyway, then confirm.
+
+You only do this once. If macOS instead says the app "is damaged", run this in Terminal and open it again:
+
+    xattr -dr com.apple.quarantine /Applications/Notepluspp.app
+
+When you first open a file in Documents, Desktop or Downloads, macOS asks whether Notepluspp may access that folder. Click Allow.
+
+## Features
+
+- Tabs, with unsaved text kept between launches.
+- Syntax highlighting and code folding for 56 languages, plus word and function auto-completion.
+- Find, Replace, Mark, and Find in Files across a folder, with regular expressions.
+- Column mode, multi-cursor editing and the column editor.
+- Line operations: sort, remove duplicates, join, split, move, trim.
+- Bookmarks, a function list, a document list and a folder workspace panel.
+- Macro recording and playback.
+- Encodings and line-ending conversion (Windows, Unix, Mac).
+- Dark mode, themes, and a shortcut mapper.
+
+On macOS, Cmd works wherever Notepad++ uses Ctrl. Cmd+S saves, Cmd+F finds, Cmd+W closes the tab.
+
+You can open files from Finder with Open With, by dropping them on the Dock icon, or by dropping them on the window. Session data lives in `~/Library/Application Support/Notepluspp`.
+
+## Build from source
+
+You need Node.js 22.12 or later.
+
+    git clone https://github.com/marulecha/notepluspadpad.git
+    cd notepluspadpad
+    npm install
+
+| Command | What it does |
+| --- | --- |
+| `npm run app` | Runs the desktop app from source. |
+| `npm run dist` | Builds `.dmg` and `.zip` files for Apple silicon and Intel into `dist/`. |
+| `npm start` | Runs the editor in your browser at http://localhost:7777 instead. |
+
+In browser mode the server listens on 127.0.0.1 only, and session data goes to `data/session.json`. You can open a file directly with `http://localhost:7777/?open=/path/to/file&line=12`. The browser keeps Cmd+N, Cmd+W and Cmd+T for itself, so use Ctrl+N and Ctrl+W there.
+
+### Releases
+
+Pushing a version tag builds the app on GitHub Actions and attaches the files to a new release:
+
+    git tag v1.0.0
+    git push origin v1.0.0
+
+Builds are ad-hoc signed. To ship a notarized build, which skips the first-launch steps above, add an Apple Developer ID certificate and set the notarization variables described in the [electron-builder docs](https://www.electron.build/code-signing-mac).
+
+## Layout
+
+- `electron/main.js` starts the server inside the app on a free local port and opens the window. It also builds the native menu and handles files opened from Finder.
+- `electron/preload.js` gives the page the real path of files dropped from Finder.
+- `server.js` is the file access API (read, write, list, find and replace in files, session) and serves the UI.
+- `public/js/` is the editor UI, built on CodeMirror 5.
+- `public/logo-padpad.svg` is the logo, also used as the favicon. `build/icon.svg` places it on the app icon tile, and `build/icon.png` is rendered from that.
+
+## License
+
+MIT. See [LICENSE](LICENSE). CodeMirror 5 is also MIT licensed.

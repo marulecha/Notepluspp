@@ -1,0 +1,180 @@
+/* Editor area: margins, markers, whitespace symbols and syntax colour themes. */
+
+.cm-s-npp.CodeMirror {
+  --bg: #fff; --fg: #000; --gutter-bg: #e4e4e4; --gutter-fg: #808080; --fold-a: #e9e9e9; --fold-b: #fff;
+  --active: #e8e8ff; --sel: #c0c0c0; --caret: #000; --ws: #ffb56a; --guide: #c0c0c0; --eol-bg: #a0a0a0; --eol-fg: #fff;
+  --fold-box: #808080; --fold-box-bg: #fff; --edge: #c0c0c0;
+  --smart: rgba(0, 255, 0, .4); --mark: rgba(255, 0, 0, .35);
+  background: var(--bg); color: var(--fg);
+  font-family: 'Courier New', Courier, monospace; font-size: 13px; line-height: 1.2;
+}
+.cm-s-npp .CodeMirror-gutters { background: var(--gutter-bg); border-right: none; }
+.cm-s-npp .CodeMirror-linenumber { color: var(--gutter-fg); padding: 0 4px 0 6px; min-width: 28px; }
+.cm-s-npp .CodeMirror-gutter.npp-bookmarks { width: 16px; background: var(--gutter-bg); cursor: default; }
+.cm-s-npp .CodeMirror-foldgutter { width: 14px; background: conic-gradient(var(--fold-a) 25%, var(--fold-b) 0 50%, var(--fold-a) 0 75%, var(--fold-b) 0) 0 0 / 2px 2px; }
+.cm-s-npp .CodeMirror-cursor { border-left: var(--caret-width) solid var(--caret); }
+.cm-s-npp .CodeMirror-activeline-background { background: var(--active); }
+body.cl-frame .cm-s-npp .CodeMirror-activeline-background { background: none; box-shadow: inset 0 0 0 1px var(--active-frame, #9c9cff); }
+.cm-s-npp .CodeMirror-selected, .cm-s-npp.CodeMirror-focused .CodeMirror-selected { background: var(--sel); }
+.cm-s-npp .CodeMirror-line::selection, .cm-s-npp .CodeMirror-line > span::selection, .cm-s-npp .CodeMirror-line > span > span::selection { background: var(--sel); }
+.cm-s-npp .CodeMirror-matchingbracket { color: #f00 !important; font-weight: bold; background: none; }
+.cm-s-npp .CodeMirror-nonmatchingbracket { color: #800000 !important; font-weight: bold; background: none; }
+.cm-s-npp .CodeMirror-matchingtag { background: rgba(128, 0, 255, .14); }
+.cm-s-npp .npp-edge { border-left: 1px solid var(--edge); }
+.cm-s-npp .CodeMirror-foldmarker { color: var(--fg); background: var(--gutter-bg); border: 1px solid var(--fold-box); font-family: Arial, sans-serif; line-height: .8; padding: 0 3px; margin: 0 2px; cursor: pointer; text-shadow: none; }
+.cm-s-npp .cm-ctrlchar { background: #000; color: #fff; font: 9px Arial, sans-serif; padding: 0 2px; border-radius: 2px; vertical-align: middle; }
+.cm-s-npp.beep { animation: beep .15s 2 alternate; }
+@keyframes beep { to { filter: brightness(.92); } }
+
+/* fold markers: box tree style */
+.npp-fold { width: 9px; height: 9px; margin: 3px 0 0 2px; border: 1px solid var(--fold-box); background: var(--fold-box-bg); position: relative; cursor: pointer; }
+.npp-fold::before { content: ""; position: absolute; left: 1px; right: 1px; top: 3px; height: 1px; background: var(--fold-box); }
+.npp-fold.folded::after { content: ""; position: absolute; top: 1px; bottom: 1px; left: 3px; width: 1px; background: var(--fold-box); }
+.CodeMirror-foldgutter-open, .CodeMirror-foldgutter-folded { cursor: pointer; }
+.CodeMirror-foldgutter-open::after, .CodeMirror-foldgutter-folded::after { content: none; }
+body.no-fold-margin .CodeMirror-foldgutter, body.no-bookmark-margin .npp-bookmarks { display: none; }
+
+/* bookmarks */
+.npp-bookmark { width: 11px; height: 11px; margin: 2px 0 0 2px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #c8e6ff 0, #4a90e2 45%, #1c4f9c 100%); box-shadow: 0 0 0 1px #173f7c; }
+
+/* whitespace, end of line and indent guides */
+body.show-ws .cm-s-npp .cm-npp-sp { background-image: radial-gradient(circle, var(--ws) 0 1.3px, transparent 1.6px); background-size: 1ch 100%; background-repeat: repeat-x; background-position: center; }
+body.show-ws .cm-s-npp .cm-tab { background: linear-gradient(var(--ws), var(--ws)) left 2px center / calc(100% - 5px) 1px no-repeat, conic-gradient(from 225deg at 100% 50%, var(--ws) 0 90deg, transparent 0) right 2px center / 4px 6px no-repeat; }
+body.show-indent .cm-s-npp .cm-npp-guide { background-image: repeating-linear-gradient(to bottom, var(--guide) 0 1px, transparent 1px 2px); background-size: 1px 100%; background-repeat: no-repeat; background-position: left; }
+body.show-indent.show-ws .cm-s-npp .cm-npp-sp.cm-npp-guide { background-image: repeating-linear-gradient(to bottom, var(--guide) 0 1px, transparent 1px 2px), radial-gradient(circle, var(--ws) 0 1.3px, transparent 1.6px); background-size: 1px 100%, 1ch 100%; background-repeat: no-repeat, repeat-x; background-position: left, center; }
+body.show-eol .cm-s-npp .CodeMirror-line > span::after { content: var(--eol, "CRLF"); font: bold 8px/1 Arial, sans-serif; color: var(--eol-fg); background: var(--eol-bg); padding: 1px 2px; margin-left: 2px; border-radius: 2px; vertical-align: 2px; }
+
+/* highlights */
+.cm-s-npp .cm-npp-smart { background: var(--smart); }
+.cm-s-npp .npp-mark { background: var(--mark); }
+.cm-s-npp .npp-style1 { background: rgba(0, 255, 255, .45); }
+.cm-s-npp .npp-style2 { background: rgba(255, 128, 0, .45); }
+.cm-s-npp .npp-style3 { background: rgba(255, 255, 0, .6); }
+.cm-s-npp .npp-style4 { background: rgba(128, 0, 255, .35); }
+.cm-s-npp .npp-style5 { background: rgba(0, 128, 0, .35); }
+
+/* ---------------------------------------------------------------- Default (stylers.xml) */
+.cm-s-npp .cm-keyword { color: #0000ff; font-weight: bold; }
+.cm-s-npp .cm-atom { color: #0000ff; font-weight: bold; }
+.cm-s-npp .cm-number { color: #ff8000; }
+.cm-s-npp .cm-def, .cm-s-npp .cm-variable, .cm-s-npp .cm-property, .cm-s-npp .cm-variable-2 { color: inherit; }
+.cm-s-npp .cm-variable-3, .cm-s-npp .cm-type { color: #8000ff; }
+.cm-s-npp .cm-builtin { color: #8000ff; }
+.cm-s-npp .cm-operator { color: #000080; font-weight: bold; }
+.cm-s-npp .cm-comment { color: #008000; }
+.cm-s-npp .cm-string, .cm-s-npp .cm-string-2 { color: #808080; }
+.cm-s-npp .cm-meta { color: #804000; }
+.cm-s-npp .cm-qualifier { color: #ff0000; }
+.cm-s-npp .cm-tag { color: #0000ff; }
+.cm-s-npp .cm-bracket { color: #0000ff; }
+.cm-s-npp .cm-attribute { color: #ff0000; }
+.cm-s-npp .cm-header { color: #000080; font-weight: bold; }
+.cm-s-npp .cm-quote { color: #008000; }
+.cm-s-npp .cm-hr { color: #808080; }
+.cm-s-npp .cm-link { color: #0000ff; text-decoration: underline; }
+.cm-s-npp .cm-positive { color: #008000; }
+.cm-s-npp .cm-negative { color: #ff0000; }
+.cm-s-npp .cm-error { color: inherit; }
+.cm-s-npp .cm-m-xml.cm-string { color: #8000ff; }
+.cm-s-npp .cm-m-xml.cm-comment { color: #008000; }
+.cm-s-npp .cm-m-xml.cm-meta { color: #ff0000; }
+.cm-s-npp .cm-m-css.cm-tag { color: #000080; font-weight: bold; }
+.cm-s-npp .cm-m-css.cm-qualifier { color: #ff0000; }
+.cm-s-npp .cm-m-css.cm-builtin { color: #0080ff; }
+.cm-s-npp .cm-m-css.cm-property { color: #0000ff; }
+.cm-s-npp .cm-m-css.cm-atom, .cm-s-npp .cm-m-css.cm-variable-3 { color: #8000ff; font-weight: normal; }
+.cm-s-npp .cm-m-python.cm-def { color: #ff00ff; font-weight: bold; }
+.cm-s-npp .cm-m-python.cm-builtin { color: #880088; }
+.cm-s-npp .cm-m-markdown.cm-comment { color: #808080; }
+.cm-s-npp .cm-m-diff.cm-meta { color: #000080; font-weight: bold; }
+.cm-s-npp .cm-m-sql.cm-keyword { color: #0000ff; }
+
+/* ---------------------------------------------------------------- dark themes (shared variables) */
+body.theme-dark .cm-s-npp.CodeMirror { --bg: #282828; --fg: #e0e2e4; --gutter-bg: #333; --gutter-fg: #8c8c8c; --fold-a: #3a3a3a; --fold-b: #2c2c2c; --active: #3a3a3a; --sel: #4b5d74; --caret: #fff; --ws: #6a6a6a; --guide: #555; --eol-bg: #555; --fold-box: #888; --fold-box-bg: #2c2c2c; --edge: #555; --smart: rgba(0, 255, 0, .22); }
+body.theme-obsidian .cm-s-npp.CodeMirror { --bg: #293134; --fg: #e0e2e4; --gutter-bg: #3f4b4e; --gutter-fg: #81969a; --fold-a: #3f4b4e; --fold-b: #333d40; --active: #2f393c; --sel: #404e51; --caret: #fff; --ws: #5a6a6e; --guide: #4f5e62; --eol-bg: #4f5e62; --fold-box: #81969a; --fold-box-bg: #293134; --edge: #4f5e62; --smart: rgba(0, 255, 0, .22); }
+body.theme-monokai .cm-s-npp.CodeMirror { --bg: #272822; --fg: #f8f8f2; --gutter-bg: #2f3129; --gutter-fg: #8f908a; --fold-a: #3a3c33; --fold-b: #2f3129; --active: #3e3d32; --sel: #49483e; --caret: #f8f8f0; --ws: #5c5d55; --guide: #4a4b43; --eol-bg: #5c5d55; --fold-box: #8f908a; --fold-box-bg: #272822; --edge: #4a4b43; --smart: rgba(166, 226, 46, .25); }
+body.theme-zenburn .cm-s-npp.CodeMirror { --bg: #3f3f3f; --fg: #dcdccc; --gutter-bg: #333333; --gutter-fg: #9fafaf; --fold-a: #444; --fold-b: #3a3a3a; --active: #4f4f4f; --sel: #5f5f5f; --caret: #ffffef; --ws: #6f6f6f; --guide: #5a5a5a; --eol-bg: #6f6f6f; --fold-box: #9fafaf; --fold-box-bg: #3f3f3f; --edge: #5a5a5a; --smart: rgba(127, 159, 127, .45); }
+body.theme-solarized .cm-s-npp.CodeMirror { --bg: #002b36; --fg: #839496; --gutter-bg: #073642; --gutter-fg: #586e75; --fold-a: #0a3c49; --fold-b: #073642; --active: #073642; --sel: #274642; --caret: #93a1a1; --ws: #2a5561; --guide: #2a5561; --eol-bg: #2a5561; --fold-box: #586e75; --fold-box-bg: #002b36; --edge: #2a5561; --smart: rgba(133, 153, 0, .35); }
+body.theme-solarized-light .cm-s-npp.CodeMirror { --bg: #fdf6e3; --fg: #657b83; --gutter-bg: #eee8d5; --gutter-fg: #93a1a1; --fold-a: #e6dfc8; --fold-b: #eee8d5; --active: #eee8d5; --sel: #e3dcc3; --caret: #586e75; --ws: #c9c1a8; --guide: #d6cfb8; --eol-bg: #b8b19a; --fold-box: #93a1a1; --fold-box-bg: #fdf6e3; --edge: #d6cfb8; --smart: rgba(133, 153, 0, .25); }
+
+/* DarkModeDefault */
+body.theme-dark .cm-s-npp .cm-keyword, body.theme-dark .cm-s-npp .cm-atom { color: #97c0eb; }
+body.theme-dark .cm-s-npp .cm-number { color: #e0a370; }
+body.theme-dark .cm-s-npp .cm-string, body.theme-dark .cm-s-npp .cm-string-2 { color: #c79c6f; }
+body.theme-dark .cm-s-npp .cm-comment, body.theme-dark .cm-s-npp .cm-quote { color: #7f9f7f; }
+body.theme-dark .cm-s-npp .cm-operator { color: #e3ceab; }
+body.theme-dark .cm-s-npp .cm-variable-3, body.theme-dark .cm-s-npp .cm-type, body.theme-dark .cm-s-npp .cm-builtin { color: #c3a0d8; }
+body.theme-dark .cm-s-npp .cm-meta { color: #d0a8a8; }
+body.theme-dark .cm-s-npp .cm-tag, body.theme-dark .cm-s-npp .cm-bracket { color: #8cd0d3; }
+body.theme-dark .cm-s-npp .cm-attribute, body.theme-dark .cm-s-npp .cm-qualifier { color: #e3ceab; }
+body.theme-dark .cm-s-npp .cm-m-xml.cm-string { color: #cc9393; }
+body.theme-dark .cm-s-npp .cm-header, body.theme-dark .cm-s-npp .cm-m-diff.cm-meta { color: #97c0eb; }
+body.theme-dark .cm-s-npp .cm-m-python.cm-def { color: #e8bf6a; }
+body.theme-dark .cm-s-npp .cm-m-css.cm-tag, body.theme-dark .cm-s-npp .cm-m-css.cm-property { color: #8cd0d3; }
+
+/* Obsidian */
+body.theme-obsidian .cm-s-npp .cm-keyword, body.theme-obsidian .cm-s-npp .cm-atom { color: #93c763; }
+body.theme-obsidian .cm-s-npp .cm-number { color: #ffcd22; }
+body.theme-obsidian .cm-s-npp .cm-string, body.theme-obsidian .cm-s-npp .cm-string-2 { color: #ec7600; }
+body.theme-obsidian .cm-s-npp .cm-comment, body.theme-obsidian .cm-s-npp .cm-quote { color: #66747b; }
+body.theme-obsidian .cm-s-npp .cm-operator { color: #e8e2b7; }
+body.theme-obsidian .cm-s-npp .cm-variable-3, body.theme-obsidian .cm-s-npp .cm-type, body.theme-obsidian .cm-s-npp .cm-builtin { color: #678cb1; }
+body.theme-obsidian .cm-s-npp .cm-meta { color: #a082bd; }
+body.theme-obsidian .cm-s-npp .cm-tag, body.theme-obsidian .cm-s-npp .cm-bracket { color: #8cbbad; }
+body.theme-obsidian .cm-s-npp .cm-attribute, body.theme-obsidian .cm-s-npp .cm-qualifier { color: #678cb1; }
+body.theme-obsidian .cm-s-npp .cm-m-xml.cm-string { color: #ec7600; }
+body.theme-obsidian .cm-s-npp .cm-header { color: #93c763; }
+body.theme-obsidian .cm-s-npp .cm-m-python.cm-def { color: #ffcd22; }
+body.theme-obsidian .cm-s-npp .cm-m-css.cm-tag, body.theme-obsidian .cm-s-npp .cm-m-css.cm-property { color: #93c763; }
+
+/* Monokai */
+body.theme-monokai .cm-s-npp .cm-keyword, body.theme-monokai .cm-s-npp .cm-operator, body.theme-monokai .cm-s-npp .cm-tag { color: #f92672; font-weight: normal; }
+body.theme-monokai .cm-s-npp .cm-atom, body.theme-monokai .cm-s-npp .cm-number { color: #ae81ff; font-weight: normal; }
+body.theme-monokai .cm-s-npp .cm-string, body.theme-monokai .cm-s-npp .cm-string-2, body.theme-monokai .cm-s-npp .cm-m-xml.cm-string { color: #e6db74; }
+body.theme-monokai .cm-s-npp .cm-comment, body.theme-monokai .cm-s-npp .cm-quote { color: #75715e; }
+body.theme-monokai .cm-s-npp .cm-def, body.theme-monokai .cm-s-npp .cm-attribute, body.theme-monokai .cm-s-npp .cm-m-python.cm-def { color: #a6e22e; }
+body.theme-monokai .cm-s-npp .cm-variable-3, body.theme-monokai .cm-s-npp .cm-type, body.theme-monokai .cm-s-npp .cm-builtin { color: #66d9ef; font-style: italic; }
+body.theme-monokai .cm-s-npp .cm-meta, body.theme-monokai .cm-s-npp .cm-qualifier { color: #fd971f; }
+body.theme-monokai .cm-s-npp .cm-bracket { color: #f8f8f2; }
+body.theme-monokai .cm-s-npp .cm-header { color: #a6e22e; }
+body.theme-monokai .cm-s-npp .cm-m-css.cm-tag { color: #f92672; }
+body.theme-monokai .cm-s-npp .cm-m-css.cm-property { color: #66d9ef; }
+
+/* Zenburn */
+body.theme-zenburn .cm-s-npp .cm-keyword, body.theme-zenburn .cm-s-npp .cm-atom { color: #f0dfaf; }
+body.theme-zenburn .cm-s-npp .cm-number { color: #8cd0d3; }
+body.theme-zenburn .cm-s-npp .cm-string, body.theme-zenburn .cm-s-npp .cm-string-2, body.theme-zenburn .cm-s-npp .cm-m-xml.cm-string { color: #cc9393; }
+body.theme-zenburn .cm-s-npp .cm-comment, body.theme-zenburn .cm-s-npp .cm-quote { color: #7f9f7f; }
+body.theme-zenburn .cm-s-npp .cm-operator { color: #f0efd0; }
+body.theme-zenburn .cm-s-npp .cm-def, body.theme-zenburn .cm-s-npp .cm-m-python.cm-def { color: #efef8f; }
+body.theme-zenburn .cm-s-npp .cm-variable-3, body.theme-zenburn .cm-s-npp .cm-type, body.theme-zenburn .cm-s-npp .cm-builtin { color: #dfdfbf; }
+body.theme-zenburn .cm-s-npp .cm-meta { color: #ffcfaf; }
+body.theme-zenburn .cm-s-npp .cm-tag, body.theme-zenburn .cm-s-npp .cm-bracket { color: #93e0e3; }
+body.theme-zenburn .cm-s-npp .cm-attribute, body.theme-zenburn .cm-s-npp .cm-qualifier { color: #dfdfbf; }
+body.theme-zenburn .cm-s-npp .cm-header { color: #f0dfaf; }
+body.theme-zenburn .cm-s-npp .cm-m-css.cm-tag, body.theme-zenburn .cm-s-npp .cm-m-css.cm-property { color: #93e0e3; }
+
+/* Solarized (both) */
+body.theme-solarized .cm-s-npp .cm-keyword, body.theme-solarized-light .cm-s-npp .cm-keyword { color: #859900; }
+body.theme-solarized .cm-s-npp .cm-atom, body.theme-solarized-light .cm-s-npp .cm-atom,
+body.theme-solarized .cm-s-npp .cm-number, body.theme-solarized-light .cm-s-npp .cm-number { color: #d33682; font-weight: normal; }
+body.theme-solarized .cm-s-npp .cm-string, body.theme-solarized-light .cm-s-npp .cm-string,
+body.theme-solarized .cm-s-npp .cm-string-2, body.theme-solarized-light .cm-s-npp .cm-string-2,
+body.theme-solarized .cm-s-npp .cm-m-xml.cm-string, body.theme-solarized-light .cm-s-npp .cm-m-xml.cm-string { color: #2aa198; }
+body.theme-solarized .cm-s-npp .cm-comment, body.theme-solarized-light .cm-s-npp .cm-comment { color: #93a1a1; font-style: italic; }
+body.theme-solarized .cm-s-npp .cm-comment { color: #586e75; }
+body.theme-solarized .cm-s-npp .cm-operator, body.theme-solarized-light .cm-s-npp .cm-operator { color: #859900; font-weight: normal; }
+body.theme-solarized .cm-s-npp .cm-def, body.theme-solarized-light .cm-s-npp .cm-def,
+body.theme-solarized .cm-s-npp .cm-tag, body.theme-solarized-light .cm-s-npp .cm-tag,
+body.theme-solarized .cm-s-npp .cm-bracket, body.theme-solarized-light .cm-s-npp .cm-bracket { color: #268bd2; }
+body.theme-solarized .cm-s-npp .cm-variable-3, body.theme-solarized-light .cm-s-npp .cm-variable-3,
+body.theme-solarized .cm-s-npp .cm-type, body.theme-solarized-light .cm-s-npp .cm-type,
+body.theme-solarized .cm-s-npp .cm-builtin, body.theme-solarized-light .cm-s-npp .cm-builtin { color: #b58900; }
+body.theme-solarized .cm-s-npp .cm-meta, body.theme-solarized-light .cm-s-npp .cm-meta,
+body.theme-solarized .cm-s-npp .cm-qualifier, body.theme-solarized-light .cm-s-npp .cm-qualifier { color: #cb4b16; }
+body.theme-solarized .cm-s-npp .cm-attribute, body.theme-solarized-light .cm-s-npp .cm-attribute { color: #93a1a1; }
+body.theme-solarized-light .cm-s-npp .cm-attribute { color: #586e75; }
+body.theme-solarized .cm-s-npp .cm-header, body.theme-solarized-light .cm-s-npp .cm-header { color: #cb4b16; }
+body.theme-solarized .cm-s-npp .cm-m-python.cm-def, body.theme-solarized-light .cm-s-npp .cm-m-python.cm-def { color: #268bd2; }
+body.theme-solarized .cm-s-npp .cm-m-css.cm-tag, body.theme-solarized-light .cm-s-npp .cm-m-css.cm-tag,
+body.theme-solarized .cm-s-npp .cm-m-css.cm-property, body.theme-solarized-light .cm-s-npp .cm-m-css.cm-property { color: #268bd2; }

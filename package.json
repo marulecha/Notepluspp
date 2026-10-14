@@ -1,0 +1,119 @@
+{
+  "name": "notepluspp",
+  "productName": "Notepluspp",
+  "version": "1.0.0",
+  "description": "A Notepad++ style text editor for macOS",
+  "main": "electron/main.js",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "start": "node server.js",
+    "app": "electron .",
+    "dist": "electron-builder --mac --arm64 --x64 --publish never"
+  },
+  "dependencies": {
+    "codemirror": "5.65.21"
+  },
+  "devDependencies": {
+    "electron": "^44.7.1",
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "com.notepluspp.app",
+    "productName": "Notepluspp",
+    "copyright": "Copyright © 2026 Άγης",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "server.js",
+      "electron/**",
+      "public/**",
+      "package.json"
+    ],
+    "electronLanguages": ["en"],
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "icon": "build/icon.png",
+      "identity": "-",
+      "hardenedRuntime": false,
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "artifactName": "${productName}-${version}-${arch}.${ext}",
+      "extendInfo": {
+        "NSDocumentsFolderUsageDescription": "Notepluspp opens and saves the files you choose in your Documents folder.",
+        "NSDesktopFolderUsageDescription": "Notepluspp opens and saves the files you choose on your Desktop.",
+        "NSDownloadsFolderUsageDescription": "Notepluspp opens and saves the files you choose in your Downloads folder.",
+        "NSRemovableVolumesUsageDescription": "Notepluspp opens and saves the files you choose on external drives.",
+        "NSNetworkVolumesUsageDescription": "Notepluspp opens and saves the files you choose on network drives."
+      }
+    },
+    "dmg": {
+      "artifactName": "${productName}-${version}-${arch}.${ext}"
+    },
+    "fileAssociations": [
+      {
+        "name": "Text document",
+        "role": "Editor",
+        "rank": "Alternate",
+        "ext": [
+          "txt",
+          "text",
+          "log",
+          "md",
+          "markdown",
+          "ini",
+          "cfg",
+          "conf",
+          "toml",
+          "yaml",
+          "yml",
+          "json",
+          "xml",
+          "csv",
+          "tsv",
+          "html",
+          "htm",
+          "css",
+          "scss",
+          "less",
+          "js",
+          "mjs",
+          "cjs",
+          "jsx",
+          "ts",
+          "tsx",
+          "py",
+          "rb",
+          "php",
+          "pl",
+          "lua",
+          "sh",
+          "bash",
+          "zsh",
+          "c",
+          "h",
+          "cpp",
+          "hpp",
+          "cc",
+          "cs",
+          "java",
+          "kt",
+          "go",
+          "rs",
+          "swift",
+          "sql",
+          "bat",
+          "ps1"
+        ]
+      }
+    ]
+  },
+  "allowScripts": {
+    "electron@44.7.1": true,
+    "electron-winstaller": false
+  }
+}

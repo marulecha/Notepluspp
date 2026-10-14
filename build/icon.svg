@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <!-- macOS app icon: public/logo-padpad.svg on a rounded square, sized to Apple's 824px icon grid. -->
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f4fbe9"/><stop offset="1" stop-color="#d3ecb0"/>
+    </linearGradient>
+  </defs>
+  <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#tile)" stroke="#b5d48c" stroke-width="4"/>
+  <svg x="160" y="172" width="704" height="680" viewBox="44 -5 486 500">
+
+  <!-- Notepluspp logo: "Noteplus" followed by two small pads in place of "pp". -->
+  <!-- pad outline (replaces the page) -->
+  <path d="M170,115A105,105 0 0 1 380,115V240L414,236Q442,233 442,262V282Q442,311 414,308L380,304V375A105,105 0 0 1 170,375V304L136,308Q108,311 108,282V262Q108,233 136,236L170,240Z" fill="#fff" stroke="#111" stroke-width="11" stroke-linejoin="round"/>
+  <path d="M192,120A83,83 0 0 1 358,120V370A83,83 0 0 1 192,370Z" fill="none" stroke="#111" stroke-width="3.5" stroke-dasharray="9 8" stroke-linecap="round"/>
+  <path d="M122,256h22M122,272h22M122,288h22M406,256h22M406,272h22M406,288h22" stroke="#111" stroke-width="3.5" stroke-linecap="round"/>
+
+  <g stroke="#111" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+    <!-- tail -->
+    <path d="M128,204C116,236 146,272 174,262C196,254 192,226 170,226C152,226 150,246 166,246" fill="none" stroke-width="21"/>
+    <path d="M128,204C116,236 146,272 174,262C196,254 192,226 170,226C152,226 150,246 166,246" fill="none" stroke="#a8e06c" stroke-width="13"/>
+    <!-- body and head -->
+    <path d="M116,202C108,160 126,126 160,120C190,115 208,130 224,140C238,134 268,140 286,158C295,168 290,183 276,187C258,191 242,188 230,192C208,198 188,207 166,209C146,211 128,210 116,202Z" fill="#a8e06c"/>
+    <path d="M124,196C150,204 196,198 226,186" fill="none" stroke="#d8f5b0" stroke-width="5"/>
+    <g fill="#6fb33a" stroke="none">
+      <circle cx="150" cy="150" r="6"/><circle cx="170" cy="138" r="5"/><circle cx="138" cy="176" r="5"/>
+      <circle cx="162" cy="168" r="6"/><circle cx="188" cy="160" r="5"/><circle cx="182" cy="182" r="4"/>
+      <circle cx="208" cy="172" r="4"/><circle cx="148" cy="194" r="3.5"/>
+    </g>
+    <path d="M283,172C272,179 260,180 249,178" fill="none" stroke-width="3.5"/>
+    <!-- googly eyes -->
+    <circle cx="214" cy="116" r="27" fill="#fff" stroke-width="4.5"/>
+    <circle cx="262" cy="123" r="24" fill="#fff" stroke-width="4.5"/>
+    <ellipse cx="224" cy="124" rx="8" ry="10" fill="#111" stroke="none"/>
+    <ellipse cx="253" cy="128" rx="7.5" ry="9.5" fill="#111" stroke="none"/>
+
+    <!-- pencil -->
+    <path d="M62,207h22v15h-22q-6,0 -6,-7.5t6,-7.5z" fill="#ef8a8a"/>
+    <rect x="84" y="207" width="12" height="15" fill="#c9c9c9"/>
+    <path d="M90,207v15" stroke-width="2.5"/>
+    <rect x="96" y="207" width="178" height="15" fill="#f2c94c"/>
+    <path d="M96,214.5h178" stroke="#d9a520" stroke-width="2.5"/>
+    <path d="M274,207L300,214.5L274,222Z" fill="#f3d9a6"/>
+    <path d="M292,212.2L304,214.5L292,216.8Z" fill="#111" stroke-width="2"/>
+
+    <!-- legs gripping the pencil -->
+    <path d="M150,200l-4,14M146,214l-8,9M146,214l2,11M146,214l9,8" fill="none" stroke-width="13"/>
+    <path d="M150,200l-4,14M146,214l-8,9M146,214l2,11M146,214l9,8" fill="none" stroke="#a8e06c" stroke-width="6.5"/>
+    <path d="M206,194l2,18M208,212l-9,10M208,212l1,12M208,212l10,8" fill="none" stroke-width="13"/>
+    <path d="M206,194l2,18M208,212l-9,10M208,212l1,12M208,212l10,8" fill="none" stroke="#a8e06c" stroke-width="6.5"/>
+  </g>
+  <path d="M186,412V285.0Q186,276 195.0,276Q204,276 204,285.0V412 M219.0,340Q228,340 228,349.0V403.0Q228,412 219.0,412Q210,412 210,403.0V349.0Q210,340 219.0,340Z M237,298V405Q237,412 243,412H246M232,342H246 M250,372.0H268V349.0Q268,340 259.0,340Q250,340 250,349.0V403.0Q250,412 259.0,412H268 M274,349.0Q274,340 283.0,340Q292,340 292,349.0V403.0Q292,412 283.0,412Q274,412 274,403.0M274,340V446 M299,276V405Q299,412 306,412 M310,340V403.0Q310,412 319.0,412Q328,412 328,403.0M328,340V412 M351,347Q348,340 342.5,340Q334,340 334,355Q334,373.0 342.5,376.0Q351,379.0 351,397Q351,412 342.5,412Q336,412 333,405 M411,352A12,12 0 0 1 435,352V434A12,12 0 0 1 411,434ZM435,379H443Q448,379 448,384V402Q448,407 443,407H435M411,379H403Q398,379 398,384V402Q398,407 403,407H411 M475,352A12,12 0 0 1 499,352V434A12,12 0 0 1 475,434ZM499,379H507Q512,379 512,384V402Q512,407 507,407H499M475,379H467Q462,379 462,384V402Q462,407 467,407H475" fill="none" stroke="#fff" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/><path d="M186,412V285.0Q186,276 195.0,276Q204,276 204,285.0V412 M219.0,340Q228,340 228,349.0V403.0Q228,412 219.0,412Q210,412 210,403.0V349.0Q210,340 219.0,340Z M237,298V405Q237,412 243,412H246M232,342H246 M250,372.0H268V349.0Q268,340 259.0,340Q250,340 250,349.0V403.0Q250,412 259.0,412H268 M274,349.0Q274,340 283.0,340Q292,340 292,349.0V403.0Q292,412 283.0,412Q274,412 274,403.0M274,340V446 M299,276V405Q299,412 306,412 M310,340V403.0Q310,412 319.0,412Q328,412 328,403.0M328,340V412 M351,347Q348,340 342.5,340Q334,340 334,355Q334,373.0 342.5,376.0Q351,379.0 351,397Q351,412 342.5,412Q336,412 333,405 M411,352A12,12 0 0 1 435,352V434A12,12 0 0 1 411,434ZM435,379H443Q448,379 448,384V402Q448,407 443,407H435M411,379H403Q398,379 398,384V402Q398,407 403,407H411 M475,352A12,12 0 0 1 499,352V434A12,12 0 0 1 475,434ZM499,379H507Q512,379 512,384V402Q512,407 507,407H499M475,379H467Q462,379 462,384V402Q462,407 467,407H475" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+
+  </svg>
+</svg>
