@@ -5,9 +5,11 @@
   </picture>
 </p>
 
-# Notepluspp
+<h1 align="center">Notepluspp</h1>
 
-Notepluspp is a copy of Notepad++ for macOS. Notepad++ only runs on Windows, and its developers don't make a Mac version, so this app recreates it for the Mac. It has the same menus, toolbar, tabs and keyboard shortcuts as Notepad++. Its official name is Noteplus-PadPad, said "note plus pad pad".
+<p align="center"><strong>Its official name is Noteplus-PadPad, said "note plus pad pad".</strong></p>
+
+Notepluspp is a copy of Notepad++ for macOS. Notepad++ only runs on Windows, and its developers don't make a Mac version, so this app recreates it for the Mac. It has the same menus, toolbar, tabs and keyboard shortcuts as Notepad++.
 
 Notepluspp is an independent project. It is not affiliated with or endorsed by the Notepad++ project or its author.
 
